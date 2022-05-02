@@ -1,0 +1,19 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.form {
+    width: 40%;
+    padding: 20px;
+    background-color: bisque;
+    border-radius: 8px;
+}
+
+
+@media (max-width: 578px) {
+    .form {
+        width: 90%;
+    }
+}

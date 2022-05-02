@@ -1,0 +1,23 @@
+.login-container {
+    padding: 20px;
+    background-color: bisque;
+    border-radius: 5px;
+    margin-left: 50px;
+}
+
+.login-container button {
+    display: block;
+}
+
+.login-via {
+    height: 40px;
+    width: 250px;
+    margin: 15px;
+    border-radius: 5px;
+    background-color: white;
+    text-align: left;
+}
+
+.login-via img {
+    margin: 0 15px 0 15px;
+}
