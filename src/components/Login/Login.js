@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase.init';
 import './Login.css'
@@ -8,6 +8,9 @@ import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from.pathname || '/'
     const [checked, setChecked] = useState(false)
     let errorMessage;
     const [
@@ -21,18 +24,12 @@ const Login = () => {
         const email = e.target.email.value
         const password = e.target.password.value
         await signInWithEmailAndPassword(email, password)
-        setChecked(false)
     }
     if (user) {
-        console.log(user)
-    }
-    if (loading) {
-        return <Loading />
+        navigate(from)
     }
     if (error) {
-        const firebaseError = error?.message
-        const splitted = firebaseError.split(':')
-        errorMessage = splitted[1]
+        errorMessage = error.message.split(':')[1]
     }
     return (
         <div onSubmit={handleSubmit} className='form-container'>
@@ -48,8 +45,14 @@ const Login = () => {
                     <Form.Check onClick={() => setChecked(!checked)} type="checkbox" label="Accept Terms And Conditions" />
                 </Form.Group>
                 <p className='text-danger'>{errorMessage}</p>
-                <Button disabled={!checked} variant="primary" type="submit">Login</Button>
-                <Link className='m-2 text-decoration-none' to='/register'>Don't have an account?</Link>
+                {loading ?
+                    <Loading />
+                    :
+                    <>
+                        <Button disabled={!checked} variant="primary" type="submit">Login</Button>
+                        <Link className='m-2 text-decoration-none' to='/register'>Don't have an account?</Link>
+                    </>}
+
             </Form>
             <SocialLogin />
         </div>

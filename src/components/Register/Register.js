@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Link } from 'react-router-dom';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import Loading from '../Shared/Loading/Loading';
 
 
 const Register = () => {
@@ -25,19 +26,13 @@ const Register = () => {
         const password = e.target.password.value
         await createUserWithEmailAndPassword(email, password)
         updateProfile({ displayName })
-        toast('verification email sent!')
     }
-    if (creatingUser) {
-        return <Spinner className='h-100 d-flex justify-content-center align-items-center' animation="border" variant='primary'></Spinner>
-    }
+    let errorMessage;
     if (userCreatingError) {
-        console.log('this is userCreatingError', userCreatingError.message)
+        errorMessage = userCreatingError?.message.split(':')[1]
     }
-    if (updatingUser) {
-        return <Spinner animation="border" variant='primary'></Spinner>
-    }
-    if (updatingUserError) {
-        console.log('this is updatingUserError', updatingUserError.message)
+    if (newCreatedUser) {
+        toast('verification email sent!')
     }
     return (
         <div className='form-container'>
@@ -56,10 +51,16 @@ const Register = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check onClick={() => setChecked(!checked)} type="checkbox" label="Accept Terms And Conditions" />
                 </Form.Group>
-                <Button disabled={!checked} variant="primary" type="submit">
-                    Register
-                </Button>
-                <Link className='m-2 text-decoration-none' to='/login'>Already Have an account?</Link>
+                <p className='text-danger'>{errorMessage}</p>
+                {creatingUser ?
+                    <Loading />
+                    :
+                    <>
+                        <Button disabled={!checked} variant="primary" type="submit">Register</Button>
+                        <Link className='m-2 text-decoration-none' to='/login'>Already Have an account?</Link>
+                    </>
+                }
+
             </Form>
             <SocialLogin />
             <ToastContainer />

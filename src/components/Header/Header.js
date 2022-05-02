@@ -1,6 +1,8 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { auth } from '../../firebase.init';
 
 const Header = () => {
     return (
@@ -17,7 +19,9 @@ const Header = () => {
                         </Nav> */}
                         <Nav className='ms-auto'>
                             <Nav.Link as={Link} to='/login'>Login</Nav.Link>
+                            <Nav.Link as={Button} onClick={() => signOut(auth)}>Logout</Nav.Link>
                             <Nav.Link as={Link} to='/register' >Register</Nav.Link>
+                            <Nav.Link as={Link} to='/protected' >protected</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
