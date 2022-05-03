@@ -1,23 +1,38 @@
-.login-container {
+.social-login-container {
     padding: 20px;
     background-color: bisque;
     border-radius: 5px;
     margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-container button {
+.social-login-container button {
     display: block;
 }
 
 .login-via {
     height: 40px;
     width: 250px;
-    margin: 15px;
+    margin-top: 15px;
     border-radius: 5px;
     background-color: white;
     text-align: left;
 }
 
+.login-via:hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
 .login-via img {
     margin: 0 15px 0 15px;
+}
+
+@media (max-width: 578px) {
+    .login-container {
+        margin-top: 20px;
+        margin-left: 0px;
+    }
 }

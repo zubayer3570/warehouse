@@ -1,0 +1,14 @@
+.user-header {
+    display: flex;
+    align-items: center;
+}
+
+.user-img {
+    width: 22px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.name {
+    display: inline-block;
+}

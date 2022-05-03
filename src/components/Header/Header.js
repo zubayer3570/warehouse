@@ -1,10 +1,13 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import { auth } from '../../firebase.init';
+import "./Header.css"
 
 const Header = () => {
+    const [user] = useAuthState(auth)
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -12,21 +15,32 @@ const Header = () => {
                     <Navbar.Brand as={Link} to='/'>Warehouse</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        {/* <Nav className="me-auto">
-                            <Nav.Link href="#features">Features</Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
-
-                        </Nav> */}
                         <Nav className='ms-auto'>
-                            <Nav.Link as={Link} to='/login'>Login</Nav.Link>
-                            <Nav.Link as={Button} onClick={() => signOut(auth)}>Logout</Nav.Link>
+                            {
+                                user ?
+                                    <>
+                                        <Nav.Link as={Link} to='/register' >
+                                            <img className='user-img' src={user?.photoURL} alt="" />
+                                        </Nav.Link>
+                                        <Nav.Link className='name' as={Link} to='/' >
+                                            {user?.displayName}
+                                        </Nav.Link>
+                                        <Nav.Link as={Link} to='/register' disabled >|</Nav.Link>
+                                    </>
+                                    :
+                                    ''
+                            }
+                            {user ?
+                                <Nav.Link as={Link} to='/login' onClick={() => signOut(auth)}>Logout</Nav.Link>
+                                :
+                                <Nav.Link as={Link} to='/login'>Login</Nav.Link>}
                             <Nav.Link as={Link} to='/register' >Register</Nav.Link>
                             <Nav.Link as={Link} to='/protected' >protected</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </div>
+        </div >
     );
 };
 

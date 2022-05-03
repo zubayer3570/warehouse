@@ -39,7 +39,7 @@ const SocialLogin = () => {
         navigate(from)
     }
     return (
-        <div className='login-container'>
+        <div className='social-login-container'>
             {loadingGoogle ?
                 <Loading />
                 :

@@ -1,0 +1,82 @@
+[
+    {
+        "serial": 1,
+        "name": "McLaren 720S",
+        "price": "$299,000",
+        "quantity": 3,
+        "supplier": "McLaren Automotive",
+        "description": "this car has a top speed of 212mph"
+    },
+    {
+        "serial": 2,
+        "name": "Bugatti Chiron",
+        "price": "$300,000",
+        "quantity": 4,
+        "supplier": "Bugatti",
+        "description": "this car has a top speed of 261mph"
+    },
+    {
+        "serial": 3,
+        "name": "ferrari f8 tributo",
+        "price": "$276,500",
+        "quantity": 12,
+        "supplier": "Ferrari",
+        "description": "this car has a top speed of 211mph"
+    },
+    {
+        "serial": 4,
+        "name": "lamborghini huracan",
+        "price": "$206,485",
+        "quantity": 11,
+        "supplier": "Lamborghini",
+        "description": "this car has a top speed of 190.1 mph"
+    },
+    {
+        "serial": 5,
+        "name": "ford gt40",
+        "price": "$500,000",
+        "quantity": 9,
+        "supplier": "Ford",
+        "description": "this car has a top speed of 164 mph"
+    },
+    {
+        "serial": 6,
+        "name": "Lamborghini Aventador SVJ",
+        "price": "$517,770",
+        "quantity": 8,
+        "supplier": "Lamborghini",
+        "description": "this car has a top speed of 216"
+    },
+    {
+        "serial": 7,
+        "name": "Noble M600",
+        "price": "350000",
+        "quantity": 3,
+        "supplier": "Noble Automotive",
+        "description": "this car has a top speed of 225 mph"
+    },
+    {
+        "serial": 8,
+        "name": "BMW M1",
+        "price": "$450,666",
+        "quantity": 7,
+        "supplier": "BMW",
+        "description": "this car has a top speed of 165 mph"
+    },
+    {
+        "serial": 1,
+        "name": "Aston Martin Valhalla",
+        "price": "$299000",
+        "quantity": 3,
+        "supplier": "Aston Martin",
+        "description": "this car has a top speed of 271mph"
+    },
+    {
+        "serial": 1,
+        "name": "Hennessey Venom F5",
+        "price": "$210000",
+        "quantity": 10,
+        "supplier": "Hennessey Automotive",
+        "description": "this car has a top speed of 271.6 mph"
+    }
+]

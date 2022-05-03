@@ -6,6 +6,7 @@ import { auth } from '../../firebase.init';
 import './Login.css'
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import Footer from '../Footer/Footer';
 
 const Login = () => {
     const location = useLocation()
@@ -26,36 +27,41 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password)
     }
     if (user) {
-        navigate(from)
+        navigate(from, { replace: true })
     }
     if (error) {
         errorMessage = error.message.split(':')[1]
     }
     return (
-        <div onSubmit={handleSubmit} className='form-container'>
-            <Form className='form'>
-                <h3 className='text-center pb-3'>Please Login</h3>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control name='email' type="email" placeholder="Enter email" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control name='password' type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check onClick={() => setChecked(!checked)} type="checkbox" label="Accept Terms And Conditions" />
-                </Form.Group>
-                <p className='text-danger'>{errorMessage}</p>
-                {loading ?
-                    <Loading />
-                    :
-                    <>
-                        <Button disabled={!checked} variant="primary" type="submit">Login</Button>
-                        <Link className='m-2 text-decoration-none' to='/register'>Don't have an account?</Link>
-                    </>}
+        <>
+            <div onSubmit={handleSubmit} className='form-container'>
+                <Form className='form'>
+                    <h3 className='text-center pb-3'>Please Login</h3>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Control name='email' type="email" placeholder="Enter email" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Control name='password' type="password" placeholder="Password" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                        <Form.Check onClick={() => setChecked(!checked)} type="checkbox" label="Accept Terms And Conditions" />
+                    </Form.Group>
+                    <p className='text-danger'>{errorMessage}</p>
+                    {loading ?
+                        <Loading />
+                        :
+                        <div className='btn-sec'>
+                            <Button disabled={!checked} variant="primary" type="submit">Login</Button>
+                            <Link className='text-decoration-none' to='/register'>Don't have an account?</Link>
+                        </div>}
 
-            </Form>
-            <SocialLogin />
-        </div>
+                </Form>
+                <SocialLogin />
+            </div>
+            <div className="login-footer">
+                <Footer />
+            </div>
+        </>
     );
 };
 

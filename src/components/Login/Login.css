@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     padding-top: 50px;
+    position: relative;
 }
 
 .form {
@@ -11,9 +12,30 @@
     border-radius: 8px;
 }
 
+.form a {
+    margin-left: 10px;
+}
+
+.login-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+
 
 @media (max-width: 578px) {
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .form {
         width: 90%;
+    }
+
+    .form a {
+        display: block;
+        margin: 10px 0 0 0px;
     }
 }
