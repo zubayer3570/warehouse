@@ -12,7 +12,9 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
+
                     <Navbar.Brand as={Link} to='/'>Warehouse</Navbar.Brand>
+                    {/* <img src="https://lh3.googleusercontent.com/a-/AOh14Gji3iWceB5i68sSh1t5lO7qt-9YKgdmlnb3JTu6=s96-c" alt="" /> */}
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className='ms-auto'>

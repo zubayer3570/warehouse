@@ -2,17 +2,19 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import './Item.css'
 import car from '../../../Images/item/car.jpg'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Item = () => {
+const Item = (props) => {
+    const navigate = useNavigate()
     return (
         <div className='item-container'>
             <img src={car} alt="" />
-            <p>Product: car</p>
-            <p>price: 1000</p>
-            <p>quantity: 2</p>
-            <p>description: this is this product</p>
-            <Button as={Link} to='/inventory/1' variant='primary'>Update Stock</Button>
+            <p>Name: {props.item.name}</p>
+            <p>price:{props.item.price} 1000</p>
+            <p>quantity: {props.item.quantity}</p>
+            <p>Supplier: {props.item.supplier}</p>
+            <p>description: {props.item.description}</p>
+            <Button onClick={() => navigate(`/inventory/${props.item._id}`)} variant='primary'>Update Stock</Button>
         </div>
     );
 };
