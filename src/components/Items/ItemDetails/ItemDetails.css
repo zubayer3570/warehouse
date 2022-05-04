@@ -1,0 +1,8 @@
+.restock-form {
+    width: 300px;
+}
+
+.restock-form input {
+    display: block;
+    width: 100%;
+}
