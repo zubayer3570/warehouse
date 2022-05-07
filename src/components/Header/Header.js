@@ -26,6 +26,7 @@ const Header = () => {
                                         <Nav.Link as={Link} to='/my-items'>My Items</Nav.Link>
                                         <Nav.Link as={Link} to='/add-item'>Add Item</Nav.Link>
                                         <Nav.Link as={Link} to='/manage-inventory'>Inventory</Nav.Link>
+                                        <Nav.Link as={Link} to='/blogs'>Blogs</Nav.Link>
 
                                         <Nav.Link as={Link} to='/login' onClick={() => signOut(auth)}>Logout</Nav.Link>
 

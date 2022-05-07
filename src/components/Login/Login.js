@@ -7,13 +7,13 @@ import '../form-css/form.css'
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import Footer from '../Footer/Footer';
+import ErrorMessage from '../Shared/ErrorMessage/ErrorMessage';
 
 const Login = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from.pathname || '/'
     const [checked, setChecked] = useState(false)
-    let errorMessage;
     const [
         signInWithEmailAndPassword,
         user,
@@ -29,9 +29,6 @@ const Login = () => {
     if (user) {
         navigate(from, { replace: true })
     }
-    if (error) {
-        errorMessage = error.message.split(':')[1]
-    }
     return (
         <>
             <div onSubmit={handleSubmit} className='form-container'>
@@ -46,13 +43,14 @@ const Login = () => {
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check onClick={() => setChecked(!checked)} type="checkbox" label="Accept Terms And Conditions" />
                     </Form.Group>
-                    <p className='text-danger'>{errorMessage}</p>
+                    {<ErrorMessage error={error} />}
                     {loading ?
                         <Loading />
                         :
                         <div className='btn-sec'>
                             <Button disabled={!checked} variant="dark" type="submit">Login</Button>
                             <Link className='text-decoration-none' to='/register'>Don't have an account?</Link>
+                            <Link className='text-decoration-none mt-2' to='/reset-password'>Forgot Password?</Link>
                         </div>}
 
                 </Form>

@@ -7,7 +7,7 @@ import Items from '../Items/Items/Items';
 
 const Home = () => {
     return (
-        <>
+        <div className='home'>
             <Banner />
             <Items />
             <div className="text-center mt-5">
@@ -16,7 +16,7 @@ const Home = () => {
                 </Button>
             </div>
             <Footer />
-        </>
+        </div>
     );
 };
 

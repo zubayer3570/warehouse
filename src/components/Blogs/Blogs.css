@@ -1,0 +1,24 @@
+.blogs-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+    margin: 50px;
+}
+
+.article {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+@media (max-width: 578px) {
+    .blogs-container {
+        grid-template-columns: 1fr;
+        margin: 25px;
+    }
+
+    .article {
+        padding: 25px;
+        border-radius: 10px;
+    }
+}

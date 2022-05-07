@@ -34,8 +34,9 @@
 }
 
 @media (max-width: 578px) {
-    .login-container {
+    .social-login-container {
         margin-top: 20px;
         margin-left: 0px;
+        width: 90%;
     }
 }

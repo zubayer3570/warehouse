@@ -2,6 +2,7 @@ import React from 'react';
 import useItems from '../../Hooks/useItems';
 import Footer from '../Footer/Footer';
 import InventoryItem from '../InventoryItem/InventoryItem';
+import Heading from '../Shared/Heading/Heading';
 import './ManageInventory.css'
 
 const ManageInventory = () => {
@@ -23,10 +24,12 @@ const ManageInventory = () => {
     }
     return (
         <>
+            <Heading title='Manage Inventory' width='350' />
             <div className="table">
                 <table>
                     <thead>
                         <tr>
+                            <th>Added By</th>
                             <th>name</th>
                             <th>unit price</th>
                             <th>brand</th>

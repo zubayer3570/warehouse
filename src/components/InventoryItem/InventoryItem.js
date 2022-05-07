@@ -5,6 +5,7 @@ const InventoryItem = (props) => {
     const handleDelete = props.handleDelete
     return (
         <tr>
+            <td className='td'>{props.item.email}</td>
             <td className='td'>{props.item.name}</td>
             <td className='td'>{props.item.price}</td>
             <td className='td'>{props.item.supplier}</td>

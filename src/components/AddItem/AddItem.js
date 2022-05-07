@@ -37,6 +37,9 @@ const AddItem = () => {
                     <Form.Group className="mb-3" controlId="formBasicPrice">
                         <Form.Control type="number" name="price" placeholder="Price" />
                     </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicURL">
+                        <Form.Control type="URL" name="URL" placeholder="Enter URL of the Photo" />
+                    </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicSupplier">
                         <Form.Control type="text" name="supplier" placeholder="Enter Supplier Name" />
                     </Form.Group>

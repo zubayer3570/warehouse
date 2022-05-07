@@ -9,6 +9,7 @@ import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import Loading from '../Shared/Loading/Loading';
 import Footer from '../Footer/Footer';
 import '../form-css/form.css'
+import ErrorMessage from '../Shared/ErrorMessage/ErrorMessage';
 
 
 const Register = () => {
@@ -23,7 +24,6 @@ const Register = () => {
         userCreatingError,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updatingUser, updatingUserError] = useUpdateProfile(auth);
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         const displayName = e.target.name.value
@@ -35,14 +35,10 @@ const Register = () => {
         toast('verification email sent!')
         toast('User Profile Updated')
     }
-    let errorMessage;
-    if (userCreatingError) {
-        errorMessage = userCreatingError?.message.split(':')[1]
-    }
     if (newCreatedUser) {
         setTimeout(() => {
             navigate(from)
-        }, 2000);
+        }, 1500);
     }
     if (updatingUser) {
         return
@@ -71,7 +67,7 @@ const Register = () => {
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check onClick={() => setChecked(!checked)} type="checkbox" label="Accept Terms And Conditions" />
                     </Form.Group>
-                    <p className='text-danger'>{errorMessage}</p>
+                    <ErrorMessage error={userCreatingError} />
                     {creatingUser ?
                         <Loading />
                         :
@@ -83,7 +79,6 @@ const Register = () => {
 
                 </Form>
                 <SocialLogin />
-                <ToastContainer />
                 <ToastContainer />
             </div>
             <Footer />

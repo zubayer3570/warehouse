@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AddItem from './components/AddItem/AddItem';
+import Blogs from './components/Blogs/Blogs';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import ItemDetails from './components/Items/ItemDetails/ItemDetails';
@@ -8,6 +9,7 @@ import Login from './components/Login/Login';
 import ManageInventory from './components/ManageInventory/ManageInventory';
 import MyItems from './components/MyItems/MyItems';
 import NotFound from './components/NotFound/NotFound';
+import PasswordReset from './components/PasswordReset/PasswordReset';
 import Register from './components/Register/Register';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 
@@ -40,7 +42,8 @@ function App() {
             <AddItem />
           </RequireAuth>
         }></Route>
-        route
+        <Route path='/reset-password' element={<PasswordReset />}></Route>
+        <Route path='/blogs' element={<Blogs />}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
     </div>

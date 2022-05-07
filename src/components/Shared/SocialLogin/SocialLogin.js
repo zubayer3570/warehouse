@@ -13,6 +13,7 @@ import {
 } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
 import { useLocation, useNavigate } from 'react-router-dom';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 const SocialLogin = () => {
     const location = useLocation()
@@ -22,19 +23,6 @@ const SocialLogin = () => {
     const [signInWithFacebook, userFacebook, loadingFacebook, errorFacebook] = useSignInWithFacebook(auth);
     const [signInWithGithub, userGithub, loadingGithub, errorGithub] = useSignInWithGithub(auth);
     const [signInWithTwitter, userTwitter, loadingTwitter, errorTwitter] = useSignInWithTwitter(auth);
-    let errorMessage;
-    if (errorGoogle) {
-        errorMessage = errorGoogle.message.split(':')[1]
-    }
-    if (errorFacebook) {
-        errorMessage = errorFacebook.message.split(':')[1]
-    }
-    if (errorGithub) {
-        errorMessage = errorGithub.message.split(':')[1]
-    }
-    if (errorTwitter) {
-        errorMessage = errorTwitter.message.split(':')[1]
-    }
     if (userGoogle || userFacebook || userGithub || userTwitter) {
         navigate(from)
     }
@@ -72,7 +60,10 @@ const SocialLogin = () => {
                     Login with Twitter
                 </button>
             }
-            <p className='text-danger mt-4'>{errorMessage}</p>
+            <ErrorMessage error={errorGoogle} />
+            <ErrorMessage error={errorFacebook} />
+            <ErrorMessage error={errorGithub} />
+            <ErrorMessage error={errorTwitter} />
         </div>
     );
 };
