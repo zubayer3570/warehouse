@@ -8,6 +8,7 @@ import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import Footer from '../Footer/Footer';
 import ErrorMessage from '../Shared/ErrorMessage/ErrorMessage';
+import axios from 'axios';
 
 const Login = () => {
     const location = useLocation()
@@ -25,8 +26,9 @@ const Login = () => {
         const email = e.target.email.value
         const password = e.target.password.value
         await signInWithEmailAndPassword(email, password)
-    }
-    if (user) {
+        const { data } = await axios.post('http://localhost:5000/login', { email })
+        console.log(data)
+        localStorage.setItem('accessToken', data.accessToken)
         navigate(from, { replace: true })
     }
     return (

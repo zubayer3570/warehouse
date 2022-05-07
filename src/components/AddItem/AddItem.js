@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom'
 import { Button, Form } from 'react-bootstrap'
 import Footer from '../Footer/Footer';
 import '../form-css/form.css'
+import axios from 'axios';
 
 const AddItem = () => {
     const navigate = useNavigate()
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const name = e.target.name.value
         const price = e.target.price.value
@@ -16,15 +17,8 @@ const AddItem = () => {
         const fullDes = e.target.fullDes.value
         const email = e.target.email.value
         const doc = { name, price, quantity, supplier, shortDes, fullDes, email }
-        fetch('http://localhost:5000/add-item', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(doc)
-        })
-            .then(res => res.json())
-            .then(data => { navigate('/my-items') })
+        await axios.post('http://localhost:5000/add-item', { doc })
+        navigate('/my-items')
     }
     return (
         <>

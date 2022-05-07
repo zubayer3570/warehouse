@@ -1,4 +1,7 @@
+import axios from 'axios';
 import React from 'react';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import useItems from '../../Hooks/useItems';
 import Footer from '../Footer/Footer';
 import InventoryItem from '../InventoryItem/InventoryItem';
@@ -10,17 +13,13 @@ const ManageInventory = () => {
     const handleDelete = (id) => {
         const confirmed = window.confirm('Are you sure to delete?')
         if (confirmed) {
-            fetch('http://localhost:5000/delete', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({ id })
-            })
+            const del = async () => {
+                await axios.post('http://localhost:5000/delete', { id })
+            }
+            del()
             const newItems = items.filter(item => item._id !== id)
             setItems(newItems)
         }
-
     }
     return (
         <>
@@ -33,6 +32,7 @@ const ManageInventory = () => {
                             <th>name</th>
                             <th>unit price</th>
                             <th>brand</th>
+                            <th>supplier</th>
                             <th>quantity</th>
                             <th>Manage</th>
                         </tr>
@@ -43,6 +43,9 @@ const ManageInventory = () => {
                         }
                     </tbody>
                 </table>
+            </div>
+            <div className='d-flex justify-content-center'>
+                <Button variant='dark' className='mt-3' as={Link} to='/add-item' >Add Products +</Button>
             </div>
             <div className='position-absolute w-100'>
                 <Footer />

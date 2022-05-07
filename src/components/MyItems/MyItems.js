@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -10,15 +11,11 @@ const MyItems = () => {
     const [user] = useAuthState(auth)
     const [myItems, setMyItems] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/my-items', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ email: user.email })
-        })
-            .then(res => res.json())
-            .then(data => setMyItems(data))
+        const getMyItems = async () => {
+            const { data } = await axios.post('http://localhost:5000/my-items', { email: user.email })
+            setMyItems(data)
+        }
+        getMyItems()
     }, [user])
     return (
         <>

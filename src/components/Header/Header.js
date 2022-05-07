@@ -22,7 +22,7 @@ const Header = () => {
                             {
                                 user ?
                                     <>
-
+                                        <Nav.Link as={Link} to='/'>Home</Nav.Link>
                                         <Nav.Link as={Link} to='/my-items'>My Items</Nav.Link>
                                         <Nav.Link as={Link} to='/add-item'>Add Item</Nav.Link>
                                         <Nav.Link as={Link} to='/manage-inventory'>Inventory</Nav.Link>
@@ -33,8 +33,6 @@ const Header = () => {
                                         <Nav.Link as={Link} to='/' >
                                             <img className='user-img' src={user?.photoURL} alt="" />
                                         </Nav.Link>
-
-
                                     </>
                                     :
                                     <>

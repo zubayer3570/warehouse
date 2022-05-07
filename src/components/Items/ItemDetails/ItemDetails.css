@@ -1,9 +1,27 @@
+.item-details-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    background-color: white;
+    padding: 50px;
+}
+
+.item-details-container img {
+    width: 100%;
+}
+
 .restock-form {
     width: 300px;
-    margin: 50px 0 0 20px;
+    margin-top: 10px;
 }
 
 .restock-form input {
-    display: block;
+    margin-top: 10px;
     width: 100%;
+}
+
+@media (max-width: 578px) {
+    .item-details-container {
+        grid-template-columns: 1fr;
+    }
 }

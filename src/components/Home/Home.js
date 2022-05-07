@@ -6,6 +6,7 @@ import Footer from '../Footer/Footer';
 import Items from '../Items/Items/Items';
 
 const Home = () => {
+
     return (
         <div className='home'>
             <Banner />
