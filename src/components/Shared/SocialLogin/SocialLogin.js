@@ -72,7 +72,7 @@ const SocialLogin = () => {
                     Login with Twitter
                 </button>
             }
-            <p className='text-danger'>{errorMessage}</p>
+            <p className='text-danger mt-4'>{errorMessage}</p>
         </div>
     );
 };

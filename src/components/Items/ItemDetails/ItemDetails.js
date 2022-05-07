@@ -39,23 +39,30 @@ const ItemDetails = () => {
             },
             body: JSON.stringify({ increaseBy, id })
         })
+            .then(res => res.json())
+            .then(data => {
+                const newQuantity = quantity + increaseBy
+                setQuantity(newQuantity)
+            })
     }
     return (
         <>
-            <div className='item-container'>
+            <div className='item-details-container'>
                 <p>Name: {item.name}</p>
                 <p>id: {item._id}</p>
                 <p>price: {item.price}</p>
                 <p>quantity: {quantity}</p>
                 <p>Supplier: {item.supplier}</p>
                 <p>description: {item.description}</p>
-                <Button onClick={handleDelivery} variant='primary'>Delivered</Button>
+                <Button onClick={handleDelivery} variant='dark'>Delivered</Button>
+                <Button className='m-2' variant='dark'>
+                    <Link to='/manage-inventory' className='text-white text-decoration-none'>Manage Inventory</Link >
+                </Button>
             </div>
             <form className='restock-form' onSubmit={handleResctock}>
                 <input type="text" placeholder='Enter Amount' name='increaseBy' />
-                <Button as='input' type="submit" variant='primary' value='Re-stock'></Button>
+                <Button as='input' type="submit" variant='dark' value='Re-stock'></Button>
             </form>
-            <Link to='/manage-inventory' >Manage Inventory</Link >
         </>
 
     );

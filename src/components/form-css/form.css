@@ -8,20 +8,24 @@
 .form {
     width: 40%;
     padding: 20px;
-    background-color: bisque;
-    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border-radius: 10px;
 }
 
 .form a {
     margin-left: 10px;
+    color: black;
 }
 
-.login-footer {
+.footer-absolute {
     width: 100%;
     position: absolute;
     bottom: 0px;
 }
 
+button:hover {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px !important;
+}
 
 @media (max-width: 578px) {
     .form-container {

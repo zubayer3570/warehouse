@@ -7,37 +7,40 @@ import { auth } from '../../firebase.init';
 import "./Header.css"
 
 const Header = () => {
-    const [user] = useAuthState(auth)
+    const [user, loading] = useAuthState(auth)
+    if (loading) {
+        return ''
+    }
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-
                     <Navbar.Brand as={Link} to='/'>Warehouse</Navbar.Brand>
-                    {/* <img src="https://lh3.googleusercontent.com/a-/AOh14Gji3iWceB5i68sSh1t5lO7qt-9YKgdmlnb3JTu6=s96-c" alt="" /> */}
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className='ms-auto'>
+                        <Nav className='ms-auto navigations'>
                             {
                                 user ?
                                     <>
-                                        <Nav.Link as={Link} to='/register' >
+
+                                        <Nav.Link as={Link} to='/my-items'>My Items</Nav.Link>
+                                        <Nav.Link as={Link} to='/add-item'>Add Item</Nav.Link>
+                                        <Nav.Link as={Link} to='/manage-inventory'>Inventory</Nav.Link>
+
+                                        <Nav.Link as={Link} to='/login' onClick={() => signOut(auth)}>Logout</Nav.Link>
+
+                                        <Nav.Link as={Link} to='/' >
                                             <img className='user-img' src={user?.photoURL} alt="" />
                                         </Nav.Link>
-                                        <Nav.Link className='name' as={Link} to='/' >
-                                            {user?.displayName}
-                                        </Nav.Link>
-                                        <Nav.Link as={Link} to='/register' disabled >|</Nav.Link>
+
+
                                     </>
                                     :
-                                    ''
+                                    <>
+                                        <Nav.Link as={Link} to='/login'>Login</Nav.Link>
+                                        <Nav.Link as={Link} to='/register' >Register</Nav.Link>
+                                    </>
                             }
-                            {user ?
-                                <Nav.Link as={Link} to='/login' onClick={() => signOut(auth)}>Logout</Nav.Link>
-                                :
-                                <Nav.Link as={Link} to='/login'>Login</Nav.Link>}
-                            <Nav.Link as={Link} to='/register' >Register</Nav.Link>
-                            <Nav.Link as={Link} to='/protected' >protected</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

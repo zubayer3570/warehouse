@@ -4,6 +4,7 @@
         "price": "$299,000",
         "quantity": 3,
         "supplier": "McLaren Automotive",
+        "email": "mahmudulhasanzubayer@gmail.com",
         "description": "this car has a top speed of 212mph"
     },
     {
@@ -11,6 +12,7 @@
         "price": "$300,000",
         "quantity": 4,
         "supplier": "Bugatti",
+        "email": "mahmudulhasanzubayer@gmail.com",
         "description": "this car has a top speed of 261mph"
     },
     {
@@ -18,6 +20,7 @@
         "price": "$276,500",
         "quantity": 12,
         "supplier": "Ferrari",
+        "email": "mahmudulhasanzubayer@gmail.com",
         "description": "this car has a top speed of 211mph"
     },
     {
@@ -25,6 +28,7 @@
         "price": "$206,485",
         "quantity": 11,
         "supplier": "Lamborghini",
+        "email": "mahmudulhasanzubayer@gmail.com",
         "description": "this car has a top speed of 190.1 mph"
     },
     {
@@ -32,6 +36,7 @@
         "price": "$500,000",
         "quantity": 9,
         "supplier": "Ford",
+        "email": "mahmudulhasanzubayer@gmail.com",
         "description": "this car has a top speed of 164 mph"
     },
     {
@@ -39,6 +44,7 @@
         "price": "$517,770",
         "quantity": 8,
         "supplier": "Lamborghini",
+        "email": "mahmudulhasanzubayer@gmail.com",
         "description": "this car has a top speed of 216"
     },
     {
@@ -46,6 +52,7 @@
         "price": "350000",
         "quantity": 3,
         "supplier": "Noble Automotive",
+        "email": "mahmudulhasanzubayer@gmail.com",
         "description": "this car has a top speed of 225 mph"
     },
     {
@@ -53,6 +60,7 @@
         "price": "$450,666",
         "quantity": 7,
         "supplier": "BMW",
+        "email": "mahmudulhasanzubayer@gmail.com",
         "description": "this car has a top speed of 165 mph"
     },
     {
@@ -60,6 +68,7 @@
         "price": "$299000",
         "quantity": 3,
         "supplier": "Aston Martin",
+        "email": "mahmudulhasanzubayer@gmail.com",
         "description": "this car has a top speed of 271mph"
     },
     {
@@ -67,6 +76,7 @@
         "price": "$210000",
         "quantity": 10,
         "supplier": "Hennessey Automotive",
+        "email": "mahmudulhasanzubayer@gmail.com",
         "description": "this car has a top speed of 271.6 mph"
     }
 ]

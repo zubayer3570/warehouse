@@ -1,0 +1,11 @@
+.line-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.line {
+    width: 15%;
+    background-color: black;
+    height: 3px;
+}

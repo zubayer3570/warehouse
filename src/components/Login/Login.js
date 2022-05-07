@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase.init';
-import './Login.css'
+import '../form-css/form.css'
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import Footer from '../Footer/Footer';
@@ -51,14 +51,14 @@ const Login = () => {
                         <Loading />
                         :
                         <div className='btn-sec'>
-                            <Button disabled={!checked} variant="primary" type="submit">Login</Button>
+                            <Button disabled={!checked} variant="dark" type="submit">Login</Button>
                             <Link className='text-decoration-none' to='/register'>Don't have an account?</Link>
                         </div>}
 
                 </Form>
                 <SocialLogin />
             </div>
-            <div className="login-footer">
+            <div className="footer-absolute">
                 <Footer />
             </div>
         </>

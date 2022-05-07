@@ -1,15 +1,17 @@
-.manage-inventory-container {
-    margin: 50px;
+.items-container {
+    margin: 70px 0 0 0;
 }
 
-.inventory-item-container {
+.items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
+    margin: 20px 50px 0 50px;
 }
 
 @media (max-width: 578px) {
-    .inventory-item-container {
+    .items {
+        margin: 20px 20px 0 20px;
         grid-template-columns: repeat(1, 1fr);
     }
 }

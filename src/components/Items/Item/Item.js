@@ -10,11 +10,11 @@ const Item = (props) => {
         <div className='item-container'>
             <img src={car} alt="" />
             <p>Name: {props.item.name}</p>
-            <p>price:{props.item.price} 1000</p>
+            <p>price:{props.item.price}</p>
             <p>quantity: {props.item.quantity}</p>
             <p>Supplier: {props.item.supplier}</p>
             <p>description: {props.item.description}</p>
-            <Button onClick={() => navigate(`/inventory/${props.item._id}`)} variant='primary'>Update Stock</Button>
+            <Button onClick={() => navigate(`/inventory/${props.item._id}`)} variant='dark'>Update Stock</Button>
         </div>
     );
 };

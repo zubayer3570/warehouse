@@ -1,12 +1,16 @@
-.user-header {
+.navigations {
     display: flex;
     align-items: center;
 }
 
+.nav-link {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 .user-img {
-    width: 22px;
-    border-radius: 50%;
-    overflow: hidden;
+    width: 25px;
+    border-radius: 100%;
 }
 
 .name {

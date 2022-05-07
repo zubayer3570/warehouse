@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import { Button, Form, Spinner } from 'react-bootstrap';
-import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { Button, Form } from 'react-bootstrap';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase.init';
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import Loading from '../Shared/Loading/Loading';
 import Footer from '../Footer/Footer';
+import '../form-css/form.css'
 
 
 const Register = () => {
-    const [checked, setChecked] = useState(false)
+    const [checked, setChecked] = useState(false);
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from.pathname || '/'
     const [
         createUserWithEmailAndPassword,
         newCreatedUser,
@@ -23,27 +27,41 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const displayName = e.target.name.value
+        const photoURL = e.target.photoURL.value
         const email = e.target.email.value
         const password = e.target.password.value
         await createUserWithEmailAndPassword(email, password)
-        updateProfile({ displayName })
+        await updateProfile({ displayName, photoURL })
+        toast('verification email sent!')
+        toast('User Profile Updated')
     }
     let errorMessage;
     if (userCreatingError) {
         errorMessage = userCreatingError?.message.split(':')[1]
     }
     if (newCreatedUser) {
-        toast('verification email sent!')
+        setTimeout(() => {
+            navigate(from)
+        }, 2000);
+    }
+    if (updatingUser) {
+        return
+    }
+    if (updatingUserError) {
+        toast('an error occured')
     }
     return (
         <>
             <div className='form-container'>
                 <Form onSubmit={handleSubmit} className='form'>
                     <h3 className='text-center pb-3'>Register Now!</h3>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Control name='name' type="text" placeholder="Enter Your Name" />
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicText">
+                    <Form.Group className="mb-3" controlId="formBasicURL">
+                        <Form.Control name='photoURL' type="text" placeholder="Enter The URL of Your Photo" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Control name='email' type="email" placeholder="Enter email" />
                     </Form.Group>
 
@@ -58,7 +76,7 @@ const Register = () => {
                         <Loading />
                         :
                         <>
-                            <Button disabled={!checked} variant="primary" type="submit">Register</Button>
+                            <Button disabled={!checked} variant="dark" type="submit">Register</Button>
                             <Link className='text-decoration-none' to='/login'>Already Have an account?</Link>
                         </>
                     }
@@ -66,10 +84,9 @@ const Register = () => {
                 </Form>
                 <SocialLogin />
                 <ToastContainer />
+                <ToastContainer />
             </div>
-            <div className="login-footer">
-                <Footer />
-            </div>
+            <Footer />
         </>
     );
 };
