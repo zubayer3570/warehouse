@@ -17,6 +17,7 @@ const AddItem = () => {
         const fullDes = e.target.fullDes.value
         const email = e.target.email.value
         const doc = { name, price, quantity, supplier, shortDes, fullDes, email }
+        //axios post
         await axios.post('https://warehouse-management-web-app.herokuapp.com/add-item', { doc })
             .then(res => navigate('/my-items'))
     }

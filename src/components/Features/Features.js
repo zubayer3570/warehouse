@@ -1,5 +1,4 @@
 import React from 'react';
-import Heading from '../Shared/Heading/Heading';
 import './Features.css'
 
 const Features = () => {

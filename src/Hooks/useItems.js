@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const useItems = (amount) => {
+    //this hook retrieve products data from the servver
     const [items, setItems] = useState([])
     useEffect(() => {
         const getItems = async () => {
