@@ -4,6 +4,8 @@
     grid-gap: 20px;
     background-color: white;
     padding: 50px;
+    margin: 30px 200px 0 200px;
+    border-radius: 30px;
 }
 
 .item-details-container img {
@@ -18,6 +20,17 @@
 .restock-form input {
     margin-top: 10px;
     width: 100%;
+}
+
+.deliver-inventory-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.deliver-inventory-container button {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 @media (max-width: 578px) {

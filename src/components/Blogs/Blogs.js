@@ -1,16 +1,18 @@
 import React from 'react';
 import Footer from '../Footer/Footer';
+import Heading from '../Shared/Heading/Heading';
 import './Blogs.css'
 const Blogs = () => {
     return (
         <>
+            <Heading title="Answers" width='200px' />
             <div className="blogs-container">
                 <div className='article'>
                     <h2>Difference Between Javascript and Node.js?</h2>
                     <p>--- Javascript is a programming language and Node.js is a runtime environment for Javascript. Before Node.js Javascript can only be used in the front end of an website, it was used to make website functional and dynamic. Node.js has given Javascript the power to run on server side. It uses the Chrome v8 engine to interpret Javascript, and gives Javascript context of system APIs, so that we can use javascript on back end</p>
                 </div>
                 <div className="article">
-                    <h2>When should you use Node.js And When should you use MongoDB</h2>
+                    <h2>When should you use Node.js And When should you use MongoDB?</h2>
                     <p>--- Node.js is a Javascript runtime, and MongoDB is a NoSQL database. If someone wants to build a chat app, which requires realtime and small but fast data transfer, he/she should go towards Node.js. And since MongoDB is a NoSQL database it is built for fast queries, and it is a general purpose database.</p>
                 </div>
                 <div className="article">

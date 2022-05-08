@@ -5,7 +5,7 @@ const useItems = (amount) => {
     const [items, setItems] = useState([])
     useEffect(() => {
         const getItems = async () => {
-            const { data } = await axios.get(`http://localhost:5000/items/${amount}`)
+            const { data } = await axios.get(`https://warehouse-management-web-app.herokuapp.com/items/${amount}`)
             setItems(data)
         }
         getItems()

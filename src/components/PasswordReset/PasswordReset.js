@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { toast, ToastContainer } from 'react-toastify';
-import { auth } from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import ErrorMessage from '../Shared/ErrorMessage/ErrorMessage';
+import { auth } from '../../firebase.init';
 
 const PasswordReset = () => {
     const navigate = useNavigate()

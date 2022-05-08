@@ -1,14 +1,19 @@
 .footer {
-    height: 100px;
+    height: 150px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
     text-align: center;
     color: white;
     background-color: #212529;
     margin-top: 50px;
+    font-size: 20px;
 }
 
 .footer p {
     margin: 0px;
+}
+
+small {
+    font-size: 10px;
 }

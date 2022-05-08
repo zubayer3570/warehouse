@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useItems from '../../../Hooks/useItems';
 import Heading from '../../Shared/Heading/Heading';
 import Loading from '../../Shared/Loading/Loading';
@@ -7,6 +7,7 @@ import './Items.css'
 
 const Items = () => {
     const [items] = useItems(6)
+
     if (!items.length) {
         return <Loading />
     }

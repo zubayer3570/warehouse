@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 50px;
-    margin: 50px;
+    margin: 30px 50px;
 }
 
 .article {

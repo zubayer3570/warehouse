@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from '../../firebase.init';
+
 import '../form-css/form.css'
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import Footer from '../Footer/Footer';
 import ErrorMessage from '../Shared/ErrorMessage/ErrorMessage';
 import axios from 'axios';
+import { auth } from '../../firebase.init';
 
 const Login = () => {
     const location = useLocation()
@@ -26,8 +27,7 @@ const Login = () => {
         const email = e.target.email.value
         const password = e.target.password.value
         await signInWithEmailAndPassword(email, password)
-        const { data } = await axios.post('http://localhost:5000/login', { email })
-        console.log(data)
+        const { data } = await axios.post('https://warehouse-management-web-app.herokuapp.com/login', { email })
         localStorage.setItem('accessToken', data.accessToken)
         navigate(from, { replace: true })
     }
@@ -58,9 +58,7 @@ const Login = () => {
                 </Form>
                 <SocialLogin />
             </div>
-            <div className="footer-absolute">
-                <Footer />
-            </div>
+            <Footer />
         </>
     );
 };

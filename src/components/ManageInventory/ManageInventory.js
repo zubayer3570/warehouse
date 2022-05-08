@@ -14,7 +14,7 @@ const ManageInventory = () => {
         const confirmed = window.confirm('Are you sure to delete?')
         if (confirmed) {
             const del = async () => {
-                await axios.post('http://localhost:5000/delete', { id })
+                await axios.post('https://warehouse-management-web-app.herokuapp.com/delete', { id })
             }
             del()
             const newItems = items.filter(item => item._id !== id)
