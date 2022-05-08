@@ -29,6 +29,8 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password)
         const { data } = await axios.post('https://warehouse-management-web-app.herokuapp.com/login', { email })
         localStorage.setItem('accessToken', data.accessToken)
+    }
+    if (user) {
         navigate(from, { replace: true })
     }
     return (

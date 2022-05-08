@@ -19,9 +19,6 @@ const SupplierComment = () => {
             <Heading title='User Experience' width='300px' />
             <div className='comments-container'>
                 {
-                    console.log(comments)
-                }
-                {
                     comments.map(comment => <Comment key={comment._id} comment={comment} />)
                 }
             </div>

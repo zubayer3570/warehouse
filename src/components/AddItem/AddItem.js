@@ -10,7 +10,7 @@ const AddItem = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const name = e.target.name.value
-        const price = e.target.price.value
+        const price = `$${e.target.price.value}`
         const quantity = e.target.quantity.value
         const supplier = e.target.supplier.value
         const shortDes = e.target.shortDes.value
@@ -18,7 +18,7 @@ const AddItem = () => {
         const email = e.target.email.value
         const doc = { name, price, quantity, supplier, shortDes, fullDes, email }
         await axios.post('https://warehouse-management-web-app.herokuapp.com/add-item', { doc })
-        navigate('/my-items')
+            .then(res => navigate('/my-items'))
     }
     return (
         <>
