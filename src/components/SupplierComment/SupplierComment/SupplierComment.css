@@ -8,3 +8,10 @@
 .supplier-comments-container {
     margin-top: 120px;
 }
+
+@media (max-width: 578px) {
+    .comments-container {
+        grid-template-columns: 1fr;
+        margin: 20px 20px 0 20px;
+    }
+}

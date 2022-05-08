@@ -4,8 +4,8 @@ import './Features.css'
 
 const Features = () => {
     return (
-        <div className='mt-4'>
-            <Heading title='Why Use This website?' width='430px' />
+        <div className='mt-5'>
+            <h1 className='text-center'>Why Use Our website?</h1>
             <div className='feature-container'>
                 <div>
                     <img src="https://i.pinimg.com/736x/a1/af/79/a1af7982a10eb6cd15207fae1b602bfc--watch-companies-watch-display.jpg" alt="" />

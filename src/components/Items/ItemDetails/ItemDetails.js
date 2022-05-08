@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Button, Col } from 'react-bootstrap';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { useNavigate, useParams } from 'react-router-dom';
 import Footer from '../../Footer/Footer';
 import Heading from '../../Shared/Heading/Heading';
 import './ItemDetails.css'
@@ -37,13 +37,11 @@ const ItemDetails = () => {
         <>
             <Heading title='Item Details' width='250px' />
             <div className='item-details-container'>
-
                 <div>
                     <img src={item.photoURL} alt="" />
                     <form className='restock-form' onSubmit={handleResctock}>
                         <input type="text" placeholder='Enter Amount' name='increaseBy' />
                         <Button as='input' type="submit" variant='dark' value='Re-stock'></Button>
-
                         <div className="deliver-inventory-container">
                             <Button onClick={handleDelivery} variant='dark'>Delivered</Button>
                             <Button variant='dark' onClick={() => navigate('/manage-inventory')} >Manage Inventory</Button>

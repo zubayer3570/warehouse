@@ -35,6 +35,12 @@
 
 @media (max-width: 578px) {
     .item-details-container {
+        display: grid;
         grid-template-columns: 1fr;
+        grid-gap: 20px;
+        background-color: white;
+        padding: 20px;
+        margin: 30px 20px 0 20px;
+        border-radius: 30px;
     }
 }
