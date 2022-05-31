@@ -19,6 +19,7 @@ const MyItems = () => {
                 }
             })
             setMyItems(data)
+            console.log(user.email)
         }
         getMyItems()
     }, [user])
